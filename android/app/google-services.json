@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "469727666661",
+    "project_id": "kitaplook-951c0",
+    "storage_bucket": "kitaplook-951c0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469727666661:android:6b376dc0cce77fb5f70f0c",
+        "android_client_info": {
+          "package_name": "com.kitaplook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB00Y-LjEyUBDhcR3MK_jC-Q4kNN1-vyEM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
