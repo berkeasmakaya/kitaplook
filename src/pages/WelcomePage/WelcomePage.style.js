@@ -1,13 +1,14 @@
 import { StyleSheet } from "react-native";
+import color from "../../styles/color";
 
 export default StyleSheet.create({
     container:{
         flex:1,
+        backgroundColor:color.cream
     },
     logo_container:{
         flex:1.5,
         justifyContent:"center",
-        //backgroundColor:"red"
     },
     logo:{
         height:'100%',
@@ -15,16 +16,15 @@ export default StyleSheet.create({
     },
     header_container:{
         flex:1,
-        //backgroundColor:"red"
     },
     header:{
         textAlign:"center",
         fontSize:30,
         fontFamily:"Pacifico-Regular",
+        color:color.brown
     },
     button_container:{
         flex:1.5,
-        justifyContent:"flex-start",
-        //backgroundColor:"yellow"
+        justifyContent:"flex-start"
     }
 })

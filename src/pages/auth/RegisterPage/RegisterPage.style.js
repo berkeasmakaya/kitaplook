@@ -7,12 +7,11 @@ const device_Size = Dimensions.get("window");
 export default StyleSheet.create({
     container:{
        flex:1,
-       backgroundColor:color.gray,
+       backgroundColor:color.beige,
        justifyContent:"space-between"
     },
     logo_container:{
         flex:1.5,
-        //backgroundColor:"red"
     },
     logo:{
         width:"100%",
@@ -21,7 +20,6 @@ export default StyleSheet.create({
     input_container:{
         flex:1,
         justifyContent:"center",
-        //backgroundColor:"blue"
     },
     input_box:{
         paddingVertical:10,
@@ -30,7 +28,7 @@ export default StyleSheet.create({
         fontWeight:"bold",
         marginLeft:"5.5%",
         fontSize:15,
-        color:color.blue
+        color:color.brown
     },
     button_container:{
     },
@@ -39,10 +37,9 @@ export default StyleSheet.create({
         justifyContent:"center",
         marginBottom:0,
         paddingVertical:10,
-        //backgroundColor:"red"
     },
     error:{
-        color:"#000000",
+        color:color.darkBrown,
         fontWeight:"bold",
         fontSize:15,
         textAlign:"center"

@@ -1,11 +1,11 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react'
 import Input from '../../components/Input/Input'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import styles from './SearchPage.style'
 
 const SearchPage = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <Input placeholder="Arayınız.."/>
     </SafeAreaView>
   )

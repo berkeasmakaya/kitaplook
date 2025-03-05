@@ -1,5 +1,4 @@
 import React from "react";
-import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -11,53 +10,68 @@ import SearchPage from "./pages/SearchPage/SearchPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import color from "./styles/color";
+import { AlertNotificationRoot } from "react-native-alert-notification";
+import LogOut from "./components/LogOut/LogOut";
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const mainPageHeaderOptions = {
+
+
+const headerOptions = {
   headerShown: true,
   headerTitle: "Kitaplook",
-  headerStyle: { backgroundColor: color.blue },
-  headerTintColor: color.white,
-  headerTitleStyle: { fontFamily: "Pacifico-Regular", fontSize: 25 },
+  headerTitleAlign:"flex-start",
+  headerStyle: { backgroundColor: color.beige },
+  headerTintColor: color.darkBrown,
+  headerTitleStyle: { fontFamily: "Pacifico-Regular", fontSize: 23 },
 }
 
 const AuthStack = () => {
-  return(
+  return (
     <Stack.Navigator>
-      <Stack.Screen name="WelcomePage" component={WelcomePage} options={{headerShown:false}}/>
-      <Stack.Screen name="RegisterPage" component={RegisterPage} options={{headerShown:false}} />
-      <Stack.Screen name="LoginPage" component={LoginPage} options={{headerShown:false}}/>
+      <Stack.Screen name="WelcomePage" component={WelcomePage} options={{ headerShown: false }} />
+      <Stack.Screen name="RegisterPage" component={RegisterPage} options={{ headerShown: false }} />
+      <Stack.Screen name="LoginPage" component={LoginPage} options={{ headerShown: false }} />
     </Stack.Navigator>
   )
 }
 
-const AppStack = ()=>{
-  return(
-    <Tab.Navigator screenOptions={{tabBarShowLabel:false}}>
+const AppStack = () => {
+  return (
+    <Tab.Navigator screenOptions={{ tabBarShowLabel: false, tabBarStyle:{backgroundColor:color.beige}}}>
       <Tab.Screen name="MainPage" component={MainPage} options={{
-        ...mainPageHeaderOptions,
-        tabBarIcon:({focused})=>(
-          <Icon name="home-circle" size={30} color={focused ? color.blue : color.black}/>
+        ...headerOptions,
+        tabBarIcon: ({ focused }) => (
+          <Icon name="home-circle" size={30} color={focused ? color.darkBrown : color.lightBrown} />
         )
-      }}/>
-      <Tab.Screen name="SearchPage" component={SearchPage} options={{ headerShown: false, tabBarIcon:({focused})=>(
-        <Icon name="book-search" size={30} color={focused ? color.blue : color.black}/>
-      )}}/>
-      <Tab.Screen name="ProfilePage" component={ProfilePage} options={{headerShown:false, tabBarIcon:({focused})=>(
-        <Icon name="account-circle" size={30} color={focused ? color.blue : color.black}/>
-      )}}/>
+      }} />
+      <Tab.Screen name="SearchPage" component={SearchPage} options={{
+        ...headerOptions,
+        tabBarIcon: ({ focused }) => (
+          <Icon name="book-search" size={30} color={focused ? color.darkBrown : color.lightBrown} />
+        )
+      }} />
+      <Tab.Screen name="ProfilePage" component={ProfilePage} options={{
+        ...headerOptions,
+        headerRight: ()=>(
+          <LogOut />
+        ),
+        tabBarIcon: ({ focused }) => (
+          <Icon name="account-circle" size={30} color={focused ? color.darkBrown : color.lightBrown} />
+        )
+      }} />
     </Tab.Navigator>
-  ) 
+  )
 }
 
-function App(){ 
-  return(
+function App() {
+  return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="AuthStack" component={AuthStack} options={{headerShown:false}}/>
-        <Stack.Screen name="AppStack" component={AppStack} options={{headerShown:false}}/>
+        <Stack.Screen name="AuthStack" component={AuthStack} options={{ headerShown: false }} />
+        <Stack.Screen name="AppStack" component={AppStack} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

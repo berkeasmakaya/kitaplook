@@ -119,9 +119,9 @@ function RegisterPage({ navigation }) {
                                 </View>
 
                                 <View style={styles.footer}>
-                                    <Text style={{ fontSize: 15 }}>Hesabınız Var Mı ?  </Text>
+                                    <Text style={{ fontSize: 15, color:color.darkBrown }}>Hesabınız Var Mı ?  </Text>
                                     <TouchableOpacity onPress={goToLoginPage}>
-                                        <Text style={{ fontWeight: "bold", fontSize: 15 }}>GİRİŞ YAP</Text>
+                                        <Text style={{ fontWeight: "bold", fontSize: 15, color:color.darkBrown  }}>GİRİŞ YAP</Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>

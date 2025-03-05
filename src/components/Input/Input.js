@@ -9,9 +9,10 @@ const Input = ({value, onChangeText, placeholder, autoCapitalize, onBlur,isSecur
     return(
         <View style={styles.container}>
             <TextInput 
-                style={[styles.input, isFocused && {borderColor:color.blue, borderWidth:2}]}
+                style={[styles.input, isFocused && {borderColor:color.lightBrown, borderWidth:2}]}
                 autoCapitalize={autoCapitalize}
                 placeholder={placeholder}
+                placeholderTextColor={color.brown}
                 value={value}
                 onChangeText={onChangeText}
                 onFocus={()=>setIsFocused(true)}

@@ -7,7 +7,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import color from "../../../styles/color";
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@react-native-firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "@react-native-firebase/auth";
 
 function LoginPage({ navigation }) {
     const goToRegisterPage = () => {
@@ -95,9 +95,9 @@ function LoginPage({ navigation }) {
                                 </View>
 
                                 <View style={styles.footer}>
-                                    <Text style={{ fontSize: 15 }}>Hesabınız Yok Mu ?  </Text>
+                                    <Text style={{ fontSize: 15, color:color.brown }}>Hesabınız Yok Mu ?  </Text>
                                     <TouchableOpacity onPress={goToRegisterPage}>
-                                        <Text style={{ fontWeight: "bold", fontSize: 15 }}>KAYIT OL</Text>
+                                        <Text style={{ fontWeight: "bold", fontSize: 15, color:color.darkBrown }}>KAYIT OL</Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>

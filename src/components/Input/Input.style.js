@@ -7,7 +7,8 @@ export default StyleSheet.create({
     },
     input:{
         backgroundColor:color.white,
-        //borderWidth:1,
+        borderWidth:1,
+        borderColor:color.lightBrown,
         borderRadius:10,
         height:45,
         paddingHorizontal:10,

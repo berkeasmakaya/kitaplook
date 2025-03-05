@@ -1,6 +1,16 @@
 export default {
-    white:"#ffffff",
-    blue:"#338fb3",
-    gray:"#e0dddd",
-    black:"#000000"
+    cream: "#f5f5dc",
+    darkBrown: "#3E2723",
+    brown: "#744f3f",
+    lightBrown: "#A68A79",
+    darkGreen: "#577459",
+    lightGreen: "#94ac93",
+    darkRed: "#A84332",
+    lightRed: "#D18F77",
+    beige: "#FAF3E0",
+    gray: "#757575",
+    darkGray: "#444444",
+    softGray: "#D1D9E6",
+    white: "#ffffff",
+    black: "#000000"
 }

@@ -8,8 +8,7 @@ export default StyleSheet.create({
         margin:15,
         padding:15,
         borderRadius:10,
-        backgroundColor:color.blue,
-        
+        backgroundColor:color.brown,
     },
     text:{
         fontSize:16,
