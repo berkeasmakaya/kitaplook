@@ -1,12 +1,21 @@
-import { View, Text } from 'react-native'
+import { View, Text, Image, ScrollView } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
+import PostCard from '../../components/PostCard/PostCard';
+import styles from './MainPage.style'
 
-function MainPage(){
+function MainPage() {
   return (
-    <SafeAreaView>
-      <Text>MainPage</Text>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <ScrollView>
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+      </ScrollView>
+    </View>
   )
 }
 
