@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0243DD1304944B54BDD287F7 /* Zain-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7514A86AD77541699396BAC5 /* Zain-ExtraBold.ttf */; };
+		11E8E4CBAC024E09A36B10B2 /* Zain-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B6E880AF371462A9FD94EFF /* Zain-ExtraLight.ttf */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		1D9E33935C3D0A1CFA97F73A /* Pods_kitaplook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074A2CF1B97C64CCCDF11763 /* Pods_kitaplook.framework */; };
 		290153F02D63372900D46F82 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 290153EF2D63372900D46F82 /* GoogleService-Info.plist */; };
+		4BBADD063D374C9F83C2BB15 /* Zain-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C64F0A08E9AF41A6B63D05D6 /* Zain-Italic.ttf */; };
+		4DD924CAA5F84BEA938A5057 /* Zain-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 174190ABDB2B4A4FA8DB0177 /* Zain-Regular.ttf */; };
+		75138AFB76FE49FBA5A6E83C /* Zain-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15610548A0FB451F88DBB87A /* Zain-Black.ttf */; };
 		75C1F44146E691D0560AF60C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C278E44BE1934068A72125DB /* Zain-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7EE23F83F1A4D9DA2FE5A6D /* Zain-Bold.ttf */; };
+		C9B3A0A3FE8647F1A38FA743 /* Zain-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 267907ECEED54D10A4466F86 /* Zain-Light.ttf */; };
 		CEB009EA73204CB5A67E5E43 /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63B56150D7C14C7DB25CB757 /* Pacifico-Regular.ttf */; };
+		E20093701B6040049AEB2719 /* Zain-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F0E32122AD049179FED9D7A /* Zain-LightItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,14 +30,22 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = kitaplook/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = kitaplook/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = kitaplook/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		15610548A0FB451F88DBB87A /* Zain-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Zain-Black.ttf"; path = "../src/assets/fonts/Zain-Black.ttf"; sourceTree = "<group>"; };
+		174190ABDB2B4A4FA8DB0177 /* Zain-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Zain-Regular.ttf"; path = "../src/assets/fonts/Zain-Regular.ttf"; sourceTree = "<group>"; };
+		1B6E880AF371462A9FD94EFF /* Zain-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Zain-ExtraLight.ttf"; path = "../src/assets/fonts/Zain-ExtraLight.ttf"; sourceTree = "<group>"; };
+		267907ECEED54D10A4466F86 /* Zain-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Zain-Light.ttf"; path = "../src/assets/fonts/Zain-Light.ttf"; sourceTree = "<group>"; };
 		290153EF2D63372900D46F82 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		29BAC1032D62886B00D8965F /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29BAC1072D62887E00D8965F /* FirebaseAuthInterop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuthInterop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F0E32122AD049179FED9D7A /* Zain-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Zain-LightItalic.ttf"; path = "../src/assets/fonts/Zain-LightItalic.ttf"; sourceTree = "<group>"; };
 		63B56150D7C14C7DB25CB757 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pacifico-Regular.ttf"; path = "../src/assets/fonts/Pacifico-Regular.ttf"; sourceTree = "<group>"; };
+		7514A86AD77541699396BAC5 /* Zain-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Zain-ExtraBold.ttf"; path = "../src/assets/fonts/Zain-ExtraBold.ttf"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = kitaplook/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = kitaplook/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87610532C15EB22E25637ADB /* Pods-kitaplook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kitaplook.debug.xcconfig"; path = "Target Support Files/Pods-kitaplook/Pods-kitaplook.debug.xcconfig"; sourceTree = "<group>"; };
 		903A7A91A7BA8D5D99F17E1D /* Pods-kitaplook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kitaplook.release.xcconfig"; path = "Target Support Files/Pods-kitaplook/Pods-kitaplook.release.xcconfig"; sourceTree = "<group>"; };
+		C64F0A08E9AF41A6B63D05D6 /* Zain-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Zain-Italic.ttf"; path = "../src/assets/fonts/Zain-Italic.ttf"; sourceTree = "<group>"; };
+		C7EE23F83F1A4D9DA2FE5A6D /* Zain-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Zain-Bold.ttf"; path = "../src/assets/fonts/Zain-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -73,6 +89,14 @@
 			isa = PBXGroup;
 			children = (
 				63B56150D7C14C7DB25CB757 /* Pacifico-Regular.ttf */,
+				15610548A0FB451F88DBB87A /* Zain-Black.ttf */,
+				C7EE23F83F1A4D9DA2FE5A6D /* Zain-Bold.ttf */,
+				7514A86AD77541699396BAC5 /* Zain-ExtraBold.ttf */,
+				1B6E880AF371462A9FD94EFF /* Zain-ExtraLight.ttf */,
+				C64F0A08E9AF41A6B63D05D6 /* Zain-Italic.ttf */,
+				267907ECEED54D10A4466F86 /* Zain-Light.ttf */,
+				2F0E32122AD049179FED9D7A /* Zain-LightItalic.ttf */,
+				174190ABDB2B4A4FA8DB0177 /* Zain-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -185,6 +209,14 @@
 				290153F02D63372900D46F82 /* GoogleService-Info.plist in Resources */,
 				75C1F44146E691D0560AF60C /* PrivacyInfo.xcprivacy in Resources */,
 				CEB009EA73204CB5A67E5E43 /* Pacifico-Regular.ttf in Resources */,
+				75138AFB76FE49FBA5A6E83C /* Zain-Black.ttf in Resources */,
+				C278E44BE1934068A72125DB /* Zain-Bold.ttf in Resources */,
+				0243DD1304944B54BDD287F7 /* Zain-ExtraBold.ttf in Resources */,
+				11E8E4CBAC024E09A36B10B2 /* Zain-ExtraLight.ttf in Resources */,
+				4BBADD063D374C9F83C2BB15 /* Zain-Italic.ttf in Resources */,
+				C9B3A0A3FE8647F1A38FA743 /* Zain-Light.ttf in Resources */,
+				E20093701B6040049AEB2719 /* Zain-LightItalic.ttf in Resources */,
+				4DD924CAA5F84BEA938A5057 /* Zain-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

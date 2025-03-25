@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React, { useState } from 'react'
 import styles from './PostCard.style'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import color from '../../styles/color'
+import color from '../../../styles/color'
 
 const PostCard = () => {
     const [likedState, setLikedState] = useState(null);
@@ -17,12 +17,12 @@ const PostCard = () => {
             <View style={styles.header_container}>
                 <View style={styles.profil_img_container}>
                     <Image 
-                        source={require('../../assets/avatar_new.png')} 
+                        source={require('../../../assets/avatar_new.png')} 
                         style={styles.profil_img}         
                         resizeMode='cover'
                     />
                 </View>
-                <Text style={styles.user_name}>user_name</Text>
+                <Text style={styles.user_name}>berkeasmakaya</Text>
             </View>
 
             <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</Text>

@@ -6,15 +6,14 @@ import color from "../../styles/color";
 
 const Button = ({onPress,text,loading, theme="primary"}) => {
     return(
-        <TouchableOpacity style={styles.container} onPress={onPress}>
+        <TouchableOpacity style={styles[theme].container} onPress={onPress}>
             {
                 loading ? (
                     <ActivityIndicator color={color.white} />
                 ) : (
-                    <Text style={styles.text}>{text}</Text>
+                    <Text style={styles[theme].text}>{text}</Text>
                 )
             }
-            
         </TouchableOpacity>
     )
 }

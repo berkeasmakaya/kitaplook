@@ -11,7 +11,10 @@ import { Formik } from 'formik';
 import { getAuth, createUserWithEmailAndPassword } from "@react-native-firebase/auth";
 
 
+
+
 function RegisterPage({ navigation }) {
+
     const goToLoginPage = () => {
         navigation.navigate("LoginPage")
     }
@@ -32,19 +35,14 @@ function RegisterPage({ navigation }) {
             .required('Şifre Onayı Zorunludur!'),
     });
     const handleFormSubmit = async (values) => {
-        console.log("Register button pressed");
-        const auth = getAuth();
-        try {
-            console.log("Attempting to create user with", values.email);
-            //await auth().createUserWithEmailAndPassword(values.email, values.password)
-            await createUserWithEmailAndPassword(auth, values.email, values.password)
-            console.log("User registration successful!");
-            navigation.navigate("LoginPage")
-        } catch (error) {
-            console.log(error)
-        }
-        
-        console.log(values)
+            const auth = getAuth();
+            try {
+                await createUserWithEmailAndPassword(auth, values.email, values.password)
+                console.log("User registration successful!");
+                navigation.navigate("AppStack")
+            } catch (error) {
+                console.log(error)
+            }
     }
 
     return (
@@ -119,9 +117,9 @@ function RegisterPage({ navigation }) {
                                 </View>
 
                                 <View style={styles.footer}>
-                                    <Text style={{ fontSize: 15, color:color.darkBrown }}>Hesabınız Var Mı ?  </Text>
+                                    <Text style={{ fontSize: 17, color:color.darkBrown, fontFamily:"Pacifico-Regular", }}>Hesabınız Var Mı ?  </Text>
                                     <TouchableOpacity onPress={goToLoginPage}>
-                                        <Text style={{ fontWeight: "bold", fontSize: 15, color:color.darkBrown  }}>GİRİŞ YAP</Text>
+                                        <Text style={{ fontSize: 15, color:color.darkBrown, fontFamily:"Pacifico-Regular",  }}>GİRİŞ YAP</Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>

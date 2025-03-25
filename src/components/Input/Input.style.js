@@ -3,7 +3,8 @@ import color from "../../styles/color";
 
 export default StyleSheet.create({
     container:{
-        margin:15,
+        marginVertical:10,
+        marginHorizontal:10,
     },
     input:{
         backgroundColor:color.white,

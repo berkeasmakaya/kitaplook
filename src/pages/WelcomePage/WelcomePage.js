@@ -6,7 +6,7 @@ import Button from "../../components/Button/Button";
 function WelcomePage({navigation}) {
 
     const goToRegisterPage = () => {
-        navigation.navigate("RegisterPage")
+        navigation.navigate("InfoPage")
     }
 
     const goToLoginPage = () => {
@@ -26,12 +26,12 @@ function WelcomePage({navigation}) {
                 </View>
 
                 <View style={styles.header_container}>
-                    <Text style={styles.header}>Welcome To KitapLook!</Text>
+                    <Text style={styles.header}>Kitaplook'a Hoşgeldiniz!</Text>
                 </View>
                 
                 <View style={styles.button_container}>
                     <Button text="Giriş Yap" onPress={goToLoginPage}/>
-                    <Button text="Kayıt Ol" onPress={goToRegisterPage}/>
+                    <Button text="Kayıt Ol" onPress={goToRegisterPage} theme="secondary"/>
                 </View>
 
             </SafeAreaView>

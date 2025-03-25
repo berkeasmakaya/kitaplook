@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import color from "../../styles/color";
+import color from "../../../styles/color";
 
 export default StyleSheet.create({
     container:{
@@ -43,6 +43,6 @@ export default StyleSheet.create({
     user_name:{
         color:color.brown,
         fontFamily:"Pacifico-Regular",
-        fontSize:20
+        fontSize:18
     }
 })

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import color from "../../styles/color";
 import { useNavigation } from "@react-navigation/native";
 import { getAuth, signOut } from "@react-native-firebase/auth";
-import CustomAlert from "../CustomAlert/CustomAlert";
+import CustomAlert from "../modals/CustomAlertModal/CustomAlertModal";
+import styles from './LogOut.style'
 
 const LogOut = () => {
     const navigation = useNavigation();
@@ -12,11 +13,6 @@ const LogOut = () => {
 
     const showAlert = () => {
         setAlertVisible(true)
-    }
-    const handleConfirmLogOut = async () => {
-        setAlertVisible(false); // Modal'ı kapat
-        handleLogOut()
-
     }
 
     const handleLogOut = async () => {
@@ -29,10 +25,16 @@ const LogOut = () => {
         }
     }
 
+    const handleConfirmLogOut = async () => {
+        setAlertVisible(false); 
+        handleLogOut()
+    }
+
     return (
         <>
-            <TouchableOpacity style={{ marginRight: 10 }} onPress={showAlert}>
-                <Icon name="logout" size={30} color={color.brown} />
+            <TouchableOpacity style={styles.container} onPress={showAlert}>
+                <Icon name="logout" size={40} color={color.darkRed} />
+                <Text style={styles.text}>Çıkış Yap</Text>
             </TouchableOpacity>
 
             <CustomAlert

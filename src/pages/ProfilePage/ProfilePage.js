@@ -3,10 +3,11 @@ import { View, Text, Image, TouchableOpacity, useWindowDimensions } from 'react-
 import styles from './ProfilePage.style';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import color from '../../styles/color';
-import BookCard from '../../components/BookCard/BookCard';
+import BookCard from '../../components/cards/BookCard/BookCard';
+import { launchImageLibrary } from 'react-native-image-picker';
 
 const ReadBooks = () => (
-  <View style={{flex:1,backgroundColor:color.blue, marginTop:10}}>
+  <View style={{ flex: 1, backgroundColor: color.blue, marginTop: 10 }}>
     <BookCard />
     <BookCard />
   </View>
@@ -23,30 +24,45 @@ const renderScene = SceneMap({
   favorite: FavoriteBooks,
 });
 
-function ProfilePage(){
+function ProfilePage({navigation}) {
+  
   const layout = useWindowDimensions();
   const [index, setIndex] = useState(0);
   const [routes] = useState([
     { key: 'read', title: 'Okunanlar' },
     { key: 'favorite', title: 'Favoriler' },
   ]);
+  const [profileImage, setProfileImage] = useState(null);
+  const selectImage = () => {
+    launchImageLibrary({ mediaType: 'photo' }, response => {
+      if (!response.didCancel && !response.error && response.assets.length > 0) {
+        setProfileImage(response.assets[0].uri); // Seçilen fotoğrafı kaydet
+      }
+    });
+  };
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.profile_img_container}>
-        <Image 
-          source={require('../../assets/avatar_new.png')}
+      <TouchableOpacity style={styles.profile_img_container} onPress={selectImage}>
+        <Image
+          source={profileImage ? { uri: profileImage } : require('../../assets/avatar_new.png')}
+          //source={require('../../assets/avatar_new.png')}
           resizeMode='cover'
           style={styles.profile_img}
         />
       </TouchableOpacity>
-      <Text style={styles.user_info}>Berke Asmakaya</Text> 
+      <View style={styles.user_info_box}>
+        <Text style={styles.user_name}>Berke Asmakaya</Text>
+        <Text style={styles.user_username}>@berkeasmakaya</Text>
+      </View>
+
       <TabView
         navigationState={{ index, routes }}
         renderScene={renderScene}
         onIndexChange={setIndex}
-        initialLayout={{ width: layout.width}}
+        initialLayout={{ width: layout.width }}
         options={{
-          
+
         }}
         renderTabBar={props => (
           <TabBar

@@ -8,4 +8,9 @@ export default StyleSheet.create({
         flex:1,
         backgroundColor:color.beige
     },
+    btn_container:{
+        position:"absolute",
+        bottom:10,
+        right:8
+    }
 })

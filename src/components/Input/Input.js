@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { TextInput, View } from "react-native";
+import { TextInput, TouchableOpacity, View } from "react-native";
 import styles from './Input.style';
 import color from "../../styles/color";
+
 
 
 const Input = ({value, onChangeText, placeholder, autoCapitalize, onBlur,isSecure, keyboardType}) => {
@@ -22,6 +23,9 @@ const Input = ({value, onChangeText, placeholder, autoCapitalize, onBlur,isSecur
                 }}
                 secureTextEntry={isSecure}
                 keyboardType={keyboardType}
+                textContentType="none"
+                autoComplete="false"
+                onSubmitEditing={()=>onChangeText('')}
             /> 
         </View>
     )

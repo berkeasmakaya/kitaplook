@@ -2,7 +2,7 @@ export default {
     cream: "#f5f5dc",
     darkBrown: "#3E2723",
     brown: "#744f3f",
-    lightBrown: "#A68A79",
+    lightBrown: "#8C705F", 
     darkGreen: "#577459",
     lightGreen: "#94ac93",
     darkRed: "#A84332",

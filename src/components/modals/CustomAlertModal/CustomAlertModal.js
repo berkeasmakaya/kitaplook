@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Text, View, TouchableOpacity} from "react-native";
 import Modal from "react-native-modal";
-import styles from './CustomAlert.style';
+import styles from './CustomAlertModal.style';
 
-const CustomAlert = ({ isVisible, onClose, title, message, onConfirm }) => {
+const CustomAlertModal = ({ isVisible, onClose, title, message, onConfirm }) => {
     return (
         <Modal
             isVisible={isVisible}
@@ -30,4 +30,4 @@ const CustomAlert = ({ isVisible, onClose, title, message, onConfirm }) => {
     )
 }
 
-export default CustomAlert;
+export default CustomAlertModal;

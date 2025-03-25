@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import {Image, Text, TouchableOpacity, View, Button } from "react-native";
 import styles from './BookCard.style';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import color from "../../styles/color";
+import color from "../../../styles/color";
 //import { ALERT_TYPE, Dialog, AlertNotificationRoot, Toast } from 'react-native-alert-notification';
-import CustomAlert from "../CustomAlert/CustomAlert";
+import CustomAlertModal from "../../modals/CustomAlertModal/CustomAlertModal";
 
 const BookCard = () => {
     const [isLiked, setIsLiked] = useState(false)
@@ -26,7 +26,7 @@ const BookCard = () => {
                 <View style={styles.inner_container}>
                     <View style={styles.img_container}>
                         <Image
-                            source={require('../../assets/kitap_ornek.jpg')}
+                            source={require('../../../assets/kitap_ornek.jpg')}
                             style={styles.img}
                             resizeMode="contain"
                         />
@@ -46,7 +46,7 @@ const BookCard = () => {
                     </TouchableOpacity>
                 </View>
             </TouchableOpacity>
-            <CustomAlert
+            <CustomAlertModal
                 isVisible={alertVisible}
                 onClose={() => setAlertVisible(false)}
                 title="Kitabı Sil"

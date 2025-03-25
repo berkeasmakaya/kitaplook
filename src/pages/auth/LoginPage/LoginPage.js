@@ -11,7 +11,7 @@ import { getAuth, signInWithEmailAndPassword } from "@react-native-firebase/auth
 
 function LoginPage({ navigation }) {
     const goToRegisterPage = () => {
-        navigation.navigate("RegisterPage")
+        navigation.navigate("InfoPage")
     }
 
     const initialFormValues = {
@@ -95,9 +95,9 @@ function LoginPage({ navigation }) {
                                 </View>
 
                                 <View style={styles.footer}>
-                                    <Text style={{ fontSize: 15, color:color.brown }}>Hesabınız Yok Mu ?  </Text>
+                                    <Text style={{ fontSize: 17, color:color.brown, fontFamily:"Pacifico-Regular", }}>Hesabınız Yok Mu ?  </Text>
                                     <TouchableOpacity onPress={goToRegisterPage}>
-                                        <Text style={{ fontWeight: "bold", fontSize: 15, color:color.darkBrown }}>KAYIT OL</Text>
+                                        <Text style={{  fontSize: 15, color:color.darkBrown, fontFamily:"Pacifico-Regular", }}>KAYIT OL</Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>
