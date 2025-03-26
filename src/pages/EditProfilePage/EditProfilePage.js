@@ -127,7 +127,7 @@ function EditProfilePage({ navigation }) {
                                     <View style={[styles.input_box]}>
                                         <Text style={styles.input_text}>Doğum Günü</Text>
                                         <View style={styles.input_inner_box}>
-                                            <Button text="Seç" theme="fourth" onPress={() => setOpen(true)} />
+                                            <Button text="Seç" theme="third" onPress={() => setOpen(true)} />
                                             {date && (
                                                 <Text style={styles.date}>
                                                     Seçilen Tarih: {formatDate(date)}
