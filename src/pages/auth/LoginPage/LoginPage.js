@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, SafeAreaView, Text, TouchableOpacity, View, Platform } from "react-native";
 import styles from './LoginPage.style';
 import Button from "../../../components/Button/Button";
@@ -8,8 +8,17 @@ import color from "../../../styles/color";
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { getAuth, signInWithEmailAndPassword } from "@react-native-firebase/auth";
+import { getUserInfo } from "../../../services/api";
+import { useDispatch } from "react-redux";
+import { setFirstName, setLastName, setUserName, setBirthday, setPhoneNumber } from "../../../redux/userSlice";
+import { formatDate } from "../../../utils/dateUtils";
+import { Toast, ALERT_TYPE } from "react-native-alert-notification";
+import Loading from "../../../components/Loading/Loading";
+import authErrorMessageParser from "../../../utils/authErrorMessageParser";
 
 function LoginPage({ navigation }) {
+    const [loading, setLoading] = useState(false)
+    const dispatch = useDispatch();
     const goToRegisterPage = () => {
         navigation.navigate("InfoPage")
     }
@@ -29,16 +38,52 @@ function LoginPage({ navigation }) {
     });
 
     const handleFormSubmit = async (values) => {
+        setLoading(true)
         const auth = getAuth();
         try {
-            await signInWithEmailAndPassword(auth, values.email, values.password)
-            navigation.navigate("AppStack")
+            const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
+            const uid = userCredential.user.uid;
+            try {
+                const userData = await getUserInfo(uid);
+                const formattedDate = formatDate(userData.birthdate)
+                dispatch(setFirstName(userData.name))
+                dispatch(setLastName(userData.surname))
+                dispatch(setUserName(userData.username))
+                dispatch(setBirthday(formattedDate))
+                dispatch(setPhoneNumber(userData.phone))
+
+                setLoading(false)
+
+                Toast.show({
+                    type: ALERT_TYPE.SUCCESS,
+                    title: "Başarılı",
+                    textBody: "Giriş Yapma İşlemi Başarılı",
+                    autoClose: 500
+                })
+
+                navigation.navigate("AppStack")
+            } catch (error) {
+                setLoading(false)
+                Toast.show({
+                    type: ALERT_TYPE.DANGER,
+                    title: "HATA",
+                    textBody: "Bir Şeyler Yanlış Gitti.",
+                    autoClose: 800
+                })
+            }
         } catch (error) {
-            console.log(error)
+            Toast.show({
+                type: ALERT_TYPE.DANGER,
+                title: "HATA",
+                textBody: authErrorMessageParser(error.code),
+                autoClose: 800
+            })
+            setLoading(false)
         }
     }
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: color.gray }}>
+            {loading && <Loading />}
             <KeyboardAwareScrollView
                 enableOnAndroid={false}
                 enableAutomaticScroll={true}
@@ -95,9 +140,9 @@ function LoginPage({ navigation }) {
                                 </View>
 
                                 <View style={styles.footer}>
-                                    <Text style={{ fontSize: 17, color:color.brown, fontFamily:"Pacifico-Regular", }}>Hesabınız Yok Mu ?  </Text>
+                                    <Text style={{ fontSize: 17, color: color.brown, fontFamily: "Pacifico-Regular", }}>Hesabınız Yok Mu ?  </Text>
                                     <TouchableOpacity onPress={goToRegisterPage}>
-                                        <Text style={{  fontSize: 15, color:color.darkBrown, fontFamily:"Pacifico-Regular", }}>KAYIT OL</Text>
+                                        <Text style={{ fontSize: 15, color: color.darkBrown, fontFamily: "Pacifico-Regular", }}>KAYIT OL</Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>

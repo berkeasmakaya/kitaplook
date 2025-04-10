@@ -20,6 +20,8 @@ import { TouchableOpacity } from 'react-native';
 import BookDetailPage from './pages/BookDetailPage/BookDetailPage';
 import { Text } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 
 const Stack = createNativeStackNavigator();
@@ -151,7 +153,15 @@ const MainApp = () => {
 function App() {
   return (
     <GestureHandlerRootView style={{flex:1}}>
-      <MainApp />
+      <Provider store={store}>
+        <AlertNotificationRoot 
+          colors={[{
+            card:color.brown,
+          }]}
+          toastConfig={{titleStyle: {color:color.beige}, textBodyStyle:{color:color.beige}}}>
+          <MainApp />
+        </AlertNotificationRoot>
+      </Provider>
     </GestureHandlerRootView>
     
   )

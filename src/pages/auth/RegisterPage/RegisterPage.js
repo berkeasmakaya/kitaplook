@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState}from "react";
 import { Image, SafeAreaView, Text, TouchableOpacity, View, Platform } from "react-native";
 import styles from './RegisterPage.style';
 import Button from "../../../components/Button/Button";
@@ -7,13 +7,18 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import color from "../../../styles/color";
 import * as Yup from 'yup';
 import { Formik } from 'formik';
-//import auth from '@react-native-firebase/auth'
+import { useSelector } from "react-redux";
 import { getAuth, createUserWithEmailAndPassword } from "@react-native-firebase/auth";
-
-
+import {createUser} from '../../../services/api';
+import Loading from "../../../components/Loading/Loading";
+import { Toast, ALERT_TYPE } from "react-native-alert-notification";
+import authErrorMessageParser from "../../../utils/authErrorMessageParser";
 
 
 function RegisterPage({ navigation }) {
+    const [loading, setLoading] = useState(false)
+    const userInfo = useSelector(state=>state.userInfo.userInfo)
+    console.log(userInfo)
 
     const goToLoginPage = () => {
         navigation.navigate("LoginPage")
@@ -35,18 +40,53 @@ function RegisterPage({ navigation }) {
             .required('Şifre Onayı Zorunludur!'),
     });
     const handleFormSubmit = async (values) => {
+            setLoading(true)
             const auth = getAuth();
             try {
-                await createUserWithEmailAndPassword(auth, values.email, values.password)
-                console.log("User registration successful!");
-                navigation.navigate("AppStack")
+                const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password)
+                const uid = userCredential.user.uid;
+                try {
+                    await createUser(uid,{
+                        name:userInfo.firstname,
+                        surname:userInfo.lastname,
+                        username:userInfo.username,
+                        birthdate:userInfo.birthday,
+                        phone:userInfo.phonenumber,
+                    })
+                    setLoading(false)
+                    Toast.show({
+                        type:ALERT_TYPE.SUCCESS,
+                        title:"Başarılı",
+                        textBody:"Kayıt Olma İşlemi Başarılı.",
+                        autoClose:500
+                    })
+                    navigation.navigate("AppStack")
+                } catch (dbError) {
+                    setLoading(false)
+                    Toast.show({
+                        type:ALERT_TYPE.DANGER,
+                        title:"HATA",
+                        textBody:"Bir Şeyler Yanlış Gitti.",
+                        autoClose:800
+                    })
+                    await userCredential.user.delete();
+                }
+                
+                
             } catch (error) {
-                console.log(error)
+                Toast.show({
+                type:ALERT_TYPE.DANGER,
+                title:"HATA",
+                textBody: authErrorMessageParser(error.code),
+                autoClose:800
+            })
+            setLoading(false)
             }
     }
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: color.gray }}>
+            {loading && <Loading />}
             <KeyboardAwareScrollView
                 enableOnAndroid={false}
                 enableAutomaticScroll={true}

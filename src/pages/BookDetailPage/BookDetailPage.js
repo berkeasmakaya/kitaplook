@@ -5,7 +5,6 @@ import ExpandableInfo from "../../components/ExpandableInfo/ExpandableInfo";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import color from "../../styles/color";
 
-
 function BookDetailPage({ route }) {
     const { book } = route.params;
     const image = book.volumeInfo.imageLinks.thumbnail;  

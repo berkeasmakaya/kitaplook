@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Image, SafeAreaView, Text, View, TouchableOpacity } from "react-native";
 import Input from "../../components/Input/Input";
 import styles from './InfoPage.style';
@@ -9,13 +9,21 @@ import Button from "../../components/Button/Button";
 import DatePicker from "react-native-date-picker";
 import color from "../../styles/color";
 import { formatDate } from "../../utils/dateUtils";
+import { useDispatch } from "react-redux";
+import { setFirstName, setLastName, setUserName, setBirthday, setPhoneNumber, resetUserInfo } from "../../redux/userSlice"
+import { Toast, ALERT_TYPE } from "react-native-alert-notification";
+import { checkUsername } from "../../services/api";
 
 
 function InfoPage({ navigation }) {
     const [date, setDate] = useState(null)
     const [open, setOpen] = useState(false)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(resetUserInfo());
+        setDate(null)
+    }, [dispatch])
 
-    
     const goToLoginPage = () => {
         navigation.navigate("LoginPage")
     }
@@ -24,7 +32,6 @@ function InfoPage({ navigation }) {
         lastname: '',
         username: '',
         phonenumber: '',
-        birthday: ''
     }
     const validationSchema = Yup.object().shape({
         firstname: Yup.string()
@@ -38,17 +45,34 @@ function InfoPage({ navigation }) {
             .min(10, "Telefon numarası en az 10 haneli olmalıdır!")
             .max(11, "Telefon numarası en fazla 11 haneli olmalıdır!"),
     });
-    const handleFormSubmit = (values) => {
-        const phoneNumber = values.phonenumber ? values.phonenumber : "";
+    const handleFormSubmit = async (values) => {
+        console.log(values)
         const birthDate = formatDate(date);
+        try {
+            const result = await checkUsername(values.username)
+            if (!result.available) {
+                Toast.show({
+                    type: ALERT_TYPE.DANGER,
+                    title: "Hata",
+                    textBody: "Bu kullanıcı adı zaten alınmış.",
+                });
+                return;
+            }
+            dispatch(setFirstName(values.firstname))
+            dispatch(setLastName(values.lastname))
+            dispatch(setUserName(values.username))
+            dispatch(setPhoneNumber(values.phonenumber))
+            if (birthDate) {
+                dispatch(setBirthday(birthDate))
+            }
+        } catch (error) {
+            Toast.show({
+                type: ALERT_TYPE.DANGER,
+                title: "Hata",
+                textBody: "Bir sorun oluştu. Lütfen tekrar deneyin.",
+            });
+        }
 
-        // dispatch(setFirstName(values.firstname))
-        // dispatch(setLastName(values.lastname))
-        // dispatch(setUserName(values.username))
-        // dispatch(setPhoneNumber(phoneNumber))
-        // if (birthDate) {
-        //     dispatch(setBirthday(birthDate))
-        // }
 
         navigation.navigate("RegisterPage")
     }
@@ -134,7 +158,7 @@ function InfoPage({ navigation }) {
                                     <View style={[styles.input_box]}>
                                         <Text style={styles.input_text}>Doğum Günü</Text>
                                         <View style={styles.input_inner_box}>
-                                            <Button text="Seç" theme="fourth" onPress={() => setOpen(true)} />
+                                            <Button text="Seç" theme="third" onPress={() => setOpen(true)} />
                                             {date && (
                                                 <Text style={styles.date}>
                                                     Seçilen Tarih: {formatDate(date)}
@@ -168,9 +192,9 @@ function InfoPage({ navigation }) {
                                     <Button text="Devam Et" onPress={handleSubmit} />
                                 </View>
                                 <View style={styles.footer}>
-                                    <Text style={{ fontSize: 17, color:color.brown, fontFamily:"Pacifico-Regular", }}>Hesabınız Var Mı ?  </Text>
+                                    <Text style={{ fontSize: 17, color: color.brown, fontFamily: "Pacifico-Regular", }}>Hesabınız Var Mı ?  </Text>
                                     <TouchableOpacity onPress={goToLoginPage}>
-                                        <Text style={{  fontSize: 15, color: color.darkBrown, fontFamily:"Pacifico-Regular", }}>GİRİŞ YAP</Text>
+                                        <Text style={{ fontSize: 15, color: color.darkBrown, fontFamily: "Pacifico-Regular", }}>GİRİŞ YAP</Text>
                                     </TouchableOpacity>
                                 </View>
 

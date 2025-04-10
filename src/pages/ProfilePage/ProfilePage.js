@@ -5,6 +5,7 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import color from '../../styles/color';
 import BookCard from '../../components/cards/BookCard/BookCard';
 import { launchImageLibrary } from 'react-native-image-picker';
+import { useSelector } from 'react-redux';
 
 const ReadBooks = () => (
   <View style={{ flex: 1, backgroundColor: color.blue, marginTop: 10 }}>
@@ -25,6 +26,7 @@ const renderScene = SceneMap({
 });
 
 function ProfilePage({navigation}) {
+  const userInfo = useSelector(state=>state.userInfo.userInfo)
   
   const layout = useWindowDimensions();
   const [index, setIndex] = useState(0);
@@ -52,8 +54,8 @@ function ProfilePage({navigation}) {
         />
       </TouchableOpacity>
       <View style={styles.user_info_box}>
-        <Text style={styles.user_name}>Berke Asmakaya</Text>
-        <Text style={styles.user_username}>@berkeasmakaya</Text>
+        <Text style={styles.user_name}>{userInfo.firstname} {userInfo.lastname}</Text>
+        <Text style={styles.user_username}>@{userInfo.username}</Text>
       </View>
 
       <TabView
